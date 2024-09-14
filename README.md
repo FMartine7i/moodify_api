@@ -9,10 +9,10 @@
     * Instalación
     * Endpoints/ Query params 
 3. Ramas
-    + Aldi_branch
-    + Jessi_branch
-    + Mila_branch
-    + Fede_branch
+    + [Aldi_branch](https://github.com/FMartine7i/moodify_api/tree/aldi_branch)
+    + [Jessi_branch](https://github.com/FMartine7i/moodify_api/tree/jessii_branch)
+    + [Mila_branch](https://github.com/FMartine7i/moodify_api/tree/mila_branch)
+    + [Fede_branch](https://github.com/FMartine7i/moodify_api/tree/fede_branch)
 
 ## Descripción
 **Moodify** es una app que permite a los usuarios encontrar las mejores playlists, canciones, artistas y álbums para su **estado de ánimo** actual.
