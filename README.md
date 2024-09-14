@@ -18,3 +18,8 @@
 **Moodify** es una app que permite a los usuarios encontrar las mejores playlists, canciones, artistas y álbums para su **estado de ánimo** actual.
 
 ## Documentación
+### Instalación
+> [!NOTE]
+> Clonar repositorio y luego ir a la terminal y buscar la carpeta ``moodify_api``. Una vez dentro la carpeta, usar el siguiente comando: ``npm install`` o ``npm i``.
+
+### Endpoints/ Query params
