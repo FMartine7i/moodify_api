@@ -1,7 +1,7 @@
 const { Router } = require('express')
 const { getSongs } = require('../controllers/songs')
-const routes = Router()
+const router = Router()
 
-routes.get('/songs', getSongs)
+router.get('/', getSongs)
 
-module.exports = routes
+module.exports = router
