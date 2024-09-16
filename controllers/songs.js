@@ -7,7 +7,9 @@ const getSongs = async (req, res) => {
       id: song.id,
       name: song.name,
       artists: song.artists.map(artist => artist.name),
-      album: song.album.name
+      album: song.album.name,
+      preview_url: song.preview_url,
+      image: song.album.images[0] && song.album.images[0].url
     }))
     res.status(200).json({
       status: 'OK',
@@ -46,7 +48,9 @@ const getSongsByMood = async (req, res) => {
       id: song.id,
       name: song.name,
       artists: song.artists.map(artist => artist.name),
-      album: song.album.name
+      album: song.album.name,
+      preview_url: song.preview_url,
+      image: song.album.images[0] && song.album.images[0].url
     }))
     res.status(200).json({
       status: 'OK',
@@ -72,7 +76,9 @@ const getSongsByGenre = async (req, res) => {
       id: song.id,
       name: song.name,
       artists: song.artists && Array.isArray(song.artists) ? song.artists.map(artist => artist.name) : ['Unknown artist'],
-      album: song.album.name
+      album: song.album.name,
+      preview_url: song.preview_url,
+      image: song.album.images[0] && song.album.images[0].url
     }))
     res.status(200).json({
       status: 'OK',
