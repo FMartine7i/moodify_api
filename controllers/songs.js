@@ -1,23 +1,42 @@
 // ------------------------------------------ get songs ------------------------------------------
+let cachedSongs = [] // creo carpeta para guardar las canciones con id personalizada
 const getSongs = async (req, res) => {
   try {
     const spotifyApi = req.app.locals.spotifyApi
-    const data = await spotifyApi.searchTracks(req.query.q || 'default', { limit: 10 })
-    const songs = data.body.tracks.items.map(song => ({
-      id: song.id,
+    const data = await spotifyApi.searchTracks(req.query.q || 'default', { limit: 50 })
+    const songs = data.body.tracks.items.map((song, index) => ({
+      customId: index + 1,
       name: song.name,
       artists: song.artists.map(artist => artist.name),
       album: song.album.name,
       preview_url: song.preview_url,
       image: song.album.images[0] && song.album.images[0].url
     }))
+    cachedSongs = songs // guardar las canciones en la caché
     res.status(200).json({
       status: 'OK',
-      data: songs
+      data: cachedSongs
     })
   } catch (err) {
     console.error('Error al obtener canciones: ', err)
     res.status(500).json({
+      status: 'ERROR',
+      message: 'Error al obtener canciones'
+    })
+  }
+}
+
+// ------------------------------------------ get songs by id ------------------------------------------
+const getSongsById = async (req, res) => {
+  const songId = parseInt(req.params.id)
+  const song = cachedSongs.find(s => s.customId === songId)
+  if (song) {
+    res.status(200).json({
+      status: 'OK',
+      data: song
+    })
+  } else {
+    res.status(404).json({
       status: 'ERROR',
       message: 'Error al obtener canciones'
     })
@@ -43,9 +62,8 @@ const getSongsByMood = async (req, res) => {
   try {
     const spotifyApi = req.app.locals.spotifyApi
     const query = keywords.join(' ')
-    const data = await spotifyApi.searchTracks(query, { limit: 10 })
+    const data = await spotifyApi.searchTracks(query, { limit: 50 })
     const songs = data.body.tracks.items.map(song => ({
-      id: song.id,
       name: song.name,
       artists: song.artists.map(artist => artist.name),
       album: song.album.name,
@@ -65,36 +83,8 @@ const getSongsByMood = async (req, res) => {
   }
 }
 
-// ------------------------------------------ get songs by genre ------------------------------------------
-const getSongsByGenre = async (req, res) => {
-  const { genre } = req.params
-  try {
-    const spotifyApi = req.app.locals.spotifyApi
-    const data = await spotifyApi.searchTracks(`genre:${genre}`, { limit: 10 })
-
-    const songs = data.body.tracks.items.map(song => ({
-      id: song.id,
-      name: song.name,
-      artists: song.artists && Array.isArray(song.artists) ? song.artists.map(artist => artist.name) : ['Unknown artist'],
-      album: song.album.name,
-      preview_url: song.preview_url,
-      image: song.album.images[0] && song.album.images[0].url
-    }))
-    res.status(200).json({
-      status: 'OK',
-      data: songs
-    })
-  } catch (err) {
-    console.error('Error al obtener canciones por género: ', err)
-    res.status(500).json({
-      status: 'ERROR',
-      message: 'Error al obtener canciones'
-    })
-  }
-}
-
 module.exports = {
   getSongs,
   getSongsByMood,
-  getSongsByGenre
+  getSongsById
 }
