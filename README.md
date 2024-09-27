@@ -6,8 +6,14 @@
 
 1. Descripción
 2. Documentación
+    * Requerimientos previos
     * Instalación
-    * Endpoints/ Query params 
+    * Inicialización
+    * Autenticación
+    * Rutas principales
+    * Ejemplos de uso
+    * Manejo de errores
+    * Estructura carpetas
 3. Ramas
     + [Aldi_branch](https://github.com/FMartine7i/moodify_api/tree/aldi_branch)
     + [Jessi_branch](https://github.com/FMartine7i/moodify_api/tree/jessii_branch)
@@ -18,13 +24,10 @@
 **Moodify** es una app que permite a los usuarios encontrar las mejores playlists, canciones, artistas y álbums para su **estado de ánimo** actual.
 
 ## Documentación
-### Instalación
+### Requerimientos previos
 > [!NOTE]
+> Tener instalado Node.js y npm.
+### Instalación
 > Clonar repositorio y luego ir a la terminal y buscar la carpeta ``moodify_api``. Una vez dentro la carpeta, usar el siguiente comando: ``npm install`` o ``npm i``.
 
-### Endpoints/ Query params
-## Álbumes
-# Obtener álbumes de rock recientemente lanzados.
-# Obtener álbumes de bandas sonoras de películas.
-# Obtener álbumes instrumentales. 
 
