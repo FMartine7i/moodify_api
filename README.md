@@ -29,7 +29,7 @@
 ### Instalación
 > Clonar repositorio y luego ir a la terminal y buscar la carpeta ``moodify_api``. Una vez dentro la carpeta, usar el siguiente comando: ``npm install`` o ``npm i``.
 ### Inicialización
-> 
+> En la consola dentro de la ruta ``\moodify`` escribir el comando: ``node app``
 ### Autenticación
 > Crear un archivo ``.env`` en la carpeta principal ``/moodify`` y escribir la siguiente línea: ``TOKEN = <codigo_token>`` con el token enviado.
 ### Rutas principales y Query Params
@@ -64,5 +64,5 @@
 > [!IMPORTANT]
 > La pagina pública mostrada no es funcional
 
-![Estructura]()
+![Estructura](https://i.imgur.com/Ux8iRaH.png)
 
