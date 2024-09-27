@@ -8,9 +8,39 @@
     <title>moodify API</title>
 </head>
 <body>
-    <header>
+    <nav class="nav__container">
+        <div class="void__container"></div>
         <img src="https://i.imgur.com/sl6a6zi.png" class="logo__img"> 
-        <h1>moodify</h1>
-    </header>
+        <input type="search" class="search__bar" placeholder="Search for a song">
+    </nav>
+    <div class="side__bar">
+        <div class="sidebar__container">
+            <ul>
+                <li>explore</li>
+                <li>songs</li>
+                <li>artists</li>
+                <li>genres</li>
+                <li>playlists</li>
+                <li>history</li>
+            </ul>
+        </div>
+    </div>
+    <main class="main__container">
+        <h1>Songs</h1>
+        <div class="container">
+            <div class="card__1 card">
+                <p>Buscar todas las canciones</p>
+                <img src="./imgs/reggae_songs.png" alt="all songs">
+            </div>
+            <div class="card__2 card">
+                <p>Buscar canciones por id</p>
+                <img src="./imgs/Synthwave.jpg" alt="songs by id">
+            </div>
+            <div class="card__3 card">
+                <p>Buscar canciones por estado de ánimo</p>
+                <img src="./imgs/moody_songs.jpeg" alt="songs based on mood">
+            </div>
+        </div>
+    </main>
 </body>
 </html>
