@@ -57,7 +57,7 @@ const moodToKeywords = {
 }
 
 const getSongsByMood = async (req, res) => {
-  const { mood } = req.params
+  const { mood } = req.query
   const keywords = moodToKeywords[mood] || ['popular'] // en caso de no encontrar el estado de ánimo, se busca popular
   try {
     const spotifyApi = req.app.locals.spotifyApi

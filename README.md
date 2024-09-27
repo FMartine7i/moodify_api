@@ -29,5 +29,11 @@
 > Tener instalado Node.js y npm.
 ### Instalación
 > Clonar repositorio y luego ir a la terminal y buscar la carpeta ``moodify_api``. Una vez dentro la carpeta, usar el siguiente comando: ``npm install`` o ``npm i``.
+### Inicialización
+> 
+### Autenticación
+> Crear un archivo ``.env`` en la carpeta principal ``/moodify`` y escribir la siguiente línea: ``TOKEN = <codigo_token>`` con el token enviado.
+### Rutas principales
+
 
 
