@@ -23,3 +23,8 @@
 > Clonar repositorio y luego ir a la terminal y buscar la carpeta ``moodify_api``. Una vez dentro la carpeta, usar el siguiente comando: ``npm install`` o ``npm i``.
 
 ### Endpoints/ Query params
+## Álbumes
+# Obtener álbumes de rock recientemente lanzados.
+# Obtener álbumes de bandas sonoras de películas.
+# Obtener álbumes instrumentales. 
+
