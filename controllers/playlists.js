@@ -1,17 +1,20 @@
+let cachedPlaylists = [];
 const getPlaylists = async (req, res) => {
     try {
         const spotifyApi = req.app.locals.spotifyApi;
         const data = await spotifyApi.searchPlaylists(req.query.q || 'default', { limit: 50 });
-        const playlists = data.body.playlists.items.map(playlist => ({
-            id: playlist.id,
+        const playlists = data.body.playlists.items.map((playlist, index) => ({
+            id: index + 1,
             nombre: playlist.name,
             imagen: playlist.images,
             enlaceSpotify: playlist.external_urls.spotify
         }));
 
+        cachedPlaylists = playlists;
+
         res.status(200).json({
             status: 'OK',
-            data: playlists,
+            data: cachedPlaylists,
         });
     } catch (err) {
         console.log('Error al obtener playlists: ', err);
@@ -22,52 +25,32 @@ const getPlaylists = async (req, res) => {
     }
 };
 
-const moods = {
-    estudiar: ['focus', 'study', 'concentration', 'instrumental'],
-    limpiar: ['cleaning', 'upbeat', 'energetic', 'feel-good'],
-    celebrar: ['celebration', 'party', 'festive', 'dance'],
-    sinAnimos: ['chill', 'calm', 'melancholy', 'downtempo'],
-    bailar: ['dance', 'groove', 'electronic', 'club', 'pop'],
-};
-
-const getPlaylistByMood = async (req, res) => {
-    const mood = req.params.mood;
-    const clave = moods[mood] || ['pop'];
-    try {
-
-        const searchQuery = clave.join(' ');
-        const spotify = req.app.locals.spotifyApi;
-        const data = await spotify.searchPlaylists(searchQuery, { limit: 1 });
-
-        const moodPlaylists = data.body.playlists.items.map(playlist => ({
-            id: playlist.id,
-            nombre: playlist.name,
-            imagen: playlist.images[0]?.url,
-            enlaceSpotify: playlist.external_urls.spotify,
-        }));
+const getPlaylistById = async (req, res) => {
+    const playlistId = parseInt(req.params.id);
+    const playlist = cachedPlaylists.find(s => s.id === playlistId);
+    if(playlist) {
         res.status(200).json({
-            estado: 'OK',
-            data: moodPlaylists,
+            status: 'OK',
+            data: playlist
         });
-    } catch (err) {
-        console.log(`Error buscando playlists para el mood: ${mood}`, err);
-        res.status(500).json({
-            estado: 'ERROR',
-            message: `No se pudieron obtener playlists para el estado de ánimo ${mood}`,
+    } else{
+        res.status(404).json({
+            status: 'ERROR',
+            message: 'Error al obtener la playlist'
         });
     }
-};
+}
 
 const momentoDelDia = {
-    morning: ['morning motivation', 'happy morning', 'acoustic wake up', 'energizing morning'],
+    mañana: ['morning motivation', 'happy morning', 'acoustic wake up', 'energizing morning'],
     tarde: ['afternoon focus', 'study vibes', 'productive work', 'afternoon boost'],
     noche: ['evening relaxation', 'chill night', 'sleep calm', 'calm night'],
     madrugada: ['late night energy', 'night workout', 'night party vibes', 'deep night focus'],
 };
   
   const getPlaylistsByTimeOfDay = async (req, res) => {
-    const { time } = req.query;
-    const playlistsQuery = momentoDelDia[time?.toLowerCase()] || ['party'];
+    const { moment } = req.params;
+    const playlistsQuery = momentoDelDia[moment?.toLowerCase()] || ['party'];
   
     try {
       const spotify = req.app.locals.spotifyApi;
@@ -98,6 +81,6 @@ const momentoDelDia = {
 
 module.exports = {
     getPlaylists,
-    getPlaylistByMood,
+    getPlaylistById,
     getPlaylistsByTimeOfDay
 };
