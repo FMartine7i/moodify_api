@@ -1,10 +1,10 @@
-const { Router } = require('express');
-const { getRecentRockAlbums, getMovieSoundtracks, getInstrumentalAlbums } = require('../controllers/album');
+const { Router } = require('express')
+const { getRecentRockAlbums, getMovieSoundtracks, getInstrumentalAlbums } = require('../controllers/albums')
 
-const router = Router();
+const router = Router()
 
-router.get('/albums/recent-rock', getRecentRockAlbums);
-router.get('/albums/movie-soundtracks', getMovieSoundtracks);
-router.get('/albums/instrumental', getInstrumentalAlbums);
+router.get('/recent-rock', getRecentRockAlbums)
+router.get('/movie-soundtracks', getMovieSoundtracks)
+router.get('/instrumental', getInstrumentalAlbums)
 
-module.exports = router;
+module.exports = router
