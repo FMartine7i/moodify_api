@@ -42,30 +42,29 @@ const getArtistById = async (req, res) => {
   }
 }
 
-const getArtistByGenre = async (req, res) =>{
-    try{
-        const genre = req.query.genre || 'rock';
-        if(!genre){
-            return res.status(400).json({
-                status:'ERROR',
-                message: "Debe proporcionar un genero para filtrar",
-            });
-        }
-
-        const filteredArtists = cachedArtists.filter(artist => artist.genres && artist.genres.includes(genre));
-
-        res.status(200).json({
-            status: 'OK',
-            data: filteredArtists,
-        });
-    }catch(err){
-        console.log('Error al filtrar artistas por genero: ', err);
-        res.status(500).json({
-            status: 'ERROR',
-            message: 'Error al filtrar artistas por genero',
-        });
+const getArtistByGenre = async (req, res) => {
+  try {
+    const genre = req.query.genre || 'rock'
+    if (!genre) {
+      return res.status(400).json({
+        status: 'ERROR',
+        message: 'Debe proporcionar un genero para filtrar'
+      })
     }
 
+    const filteredArtists = cachedArtists.filter(artist => artist.genres && artist.genres.includes(genre))
+
+    res.status(200).json({
+      status: 'OK',
+      data: filteredArtists
+    })
+  } catch (err) {
+    console.log('Error al filtrar artistas por genero: ', err)
+    res.status(500).json({
+      status: 'ERROR',
+      message: 'Error al filtrar artistas por genero'
+    })
+  }
 }
 
 module.exports = {
