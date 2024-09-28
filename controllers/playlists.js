@@ -49,7 +49,7 @@ const momentoDelDia = {
 };
   
   const getPlaylistsByTimeOfDay = async (req, res) => {
-    const { moment } = req.params;
+    const { moment } = req.query;
     const playlistsQuery = momentoDelDia[moment?.toLowerCase()] || ['party'];
   
     try {
