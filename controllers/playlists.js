@@ -69,10 +69,10 @@ const getPlaylistsByTimeOfDay = async (req, res) => {
       data: playlists
     })
   } catch (err) {
-    console.log('Error buscando playlists por idioma: ', err)
+    console.log('Error buscando playlists por momento del dia: ', err)
     res.status(500).json({
       estado: 'ERROR',
-      message: 'Error al buscar playlists por idioma'
+      message: 'Error al buscar playlists por momento del dia'
     })
   }
 }
