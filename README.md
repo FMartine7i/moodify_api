@@ -1,18 +1,19 @@
 ![logo](https://i.imgur.com/sl6a6zi.png)
 # Moodify
 ## Spotify API call
+### participantes: Aldana Aranda, Jessica Escobar, Milagros Muñoz Nicosia y Federico Pérez Martinetti
 
 ### Index
 
 1. Descripción
 2. Documentación
-    * Requerimientos previos
-    * Instalación
-    * Inicialización
-    * Autenticación
-    * Rutas principales y Query Params
-    * Manejo de errores
-    * Estructura carpetas
+    * [Requerimientos previos](#requerimientos-previos)
+    * [Instalación](#instalación)
+    * [Inicialización](#inicialización)
+    * [Autenticación](#autenticación)
+    * [Rutas principales y Query Params](#rutas-principales-y-query-params)
+    * [Manejo de errores](#manejo-de-errores)
+    * [Estructura carpetas](#estructura-carpetas)
 3. Ramas
     + [Aldi_branch](https://github.com/FMartine7i/moodify_api/tree/aldi_branch)
     + [Jessi_branch](https://github.com/FMartine7i/moodify_api/tree/jessii_branch)
@@ -20,7 +21,7 @@
     + [Fede_branch](https://github.com/FMartine7i/moodify_api/tree/fede_branch)
 
 ## Descripción
-**Moodify** es una app que permite a los usuarios encontrar las mejores playlists, canciones, artistas y álbums para su **estado de ánimo** actual.
+**Moodify** es una app que permite a los usuarios encontrar playlists, canciones, artistas y álbums basados en su **estado de ánimo** actual, el **momento del día** o el **género**.
 
 ## Documentación
 ### Requerimientos previos
@@ -33,20 +34,26 @@
 ### Autenticación
 > Crear un archivo ``.env`` en la carpeta principal ``/moodify`` y escribir la siguiente línea: ``TOKEN = <codigo_token>`` con el token enviado.
 ### Rutas principales y Query Params
-1. Canciones
-    * **GET** ``api\v1\songs`` → Busca todas las canciones
-    * **GET** ``api\v1\songs\id\:id`` → Busca una canción por su ID (numeros del 1 al 50)
-    * **GET** ``api\v1\songs?mood=<mood>`` → Busca canciones por estado de ánimo. Se puede elegir: [dark, sad, happy, angry, crepy,romantic, emotional, relaxed]
+* Canciones
+    | Método | Endpoint | Descripción |
+    |---|---|---|
+    | **GET** | ``api\v1\songs`` | Busca todas las canciones
+    | **GET** | ``api\v1\songs\id\:id`` | Busca una canción por su ID (numeros del 1 al 50)
+    | **GET** | ``api\v1\songs?mood=<mood>`` | Busca canciones por estado de ánimo. Se puede elegir: [dark, sad, happy, angry, crepy,romantic, emotional, relaxed]
 
-2. Artistas
-    * **GET** ``api\v1\artists`` → Devuelve todos los artistas
-    * **GET** ``api\v1\artists\id\:id`` → Devuelve un artista por su id [1 - 50]
-    * **GET** ``api\v1\artists?genre=<genre>`` → Devuelve artistas por cualquier género solicitado
+* Artistas
+    | Método | Endpoint | Descripción |
+    |---|---|---|
+    | **GET** |``api\v1\artists``| Devuelve todos los artistas |
+    | **GET** |``api\v1\artists\id\:id`` | Devuelve un artista por su id [1 - 50]|
+    | **GET** |``api\v1\artists?genre=<genre>`` | Devuelve artistas por cualquier género solicitado|
 
-3. Playlists
-    * **GET** ``api\v1\playlists`` → Devuelve 50 playlists
-    * **GET** ``api\v1\playlists\id\:id`` → Devuelve una playlist por id [1 - 50]
-    * **GET** ``api\v1\playlists?TimeOfDay`` → Devuelve 50 playlists para el momento del dia elegido: [mañana, tarde, noche, madrugada]
+* Playlists
+    | Método | Endpoint | Descripción |
+    |---|---|---|
+    | **GET** | ``api\v1\playlists`` | Devuelve 50 playlists |
+    | **GET** | ``api\v1\playlists\id\:id`` | Devuelve una playlist por id [1 - 50] |
+    | **GET** | ``api\v1\playlists?TimeOfDay`` | Devuelve 50 playlists para el momento del dia elegido: [mañana, tarde, noche, madrugada] |
 
 ### Manejo de errores
 1. Paquetes de manejos de errores: ``husky`` y ``standard``
