@@ -4,19 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <style>
-        * {
-            background-color: #2f2b35;
-            color: #fff;
-            font-family: 'Poppins', sans-serif;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
     <title>moodify API</title>
 </head>
 <body>
-    <header>
-        <img src="https://i.imgur.com/sl6a6zi.png" alt="moodify logo">
-        <h1>moodify</h1>
-    </header>
+    <nav class="nav__container">
+        <div class="void__container"></div>
+        <img src="https://i.imgur.com/sl6a6zi.png" class="logo__img"> 
+        <input type="search" class="search__bar" placeholder="Search for a song">
+    </nav>
+    <div class="side__bar">
+        <div class="sidebar__container">
+            <h3>moodify</h3>
+            <ul>
+                <li>explore</li>
+                <li>songs</li>
+                <li>artists</li>
+                <li>genres</li>
+                <li>playlists</li>
+                <li>history</li>
+            </ul>
+        </div>
+    </div>
+    <main class="main__container">
+        <h1>Songs</h1>
+        <div class="container">
+            <div class="card__1 card">
+                <p>Buscar todas las canciones</p>
+                <img src="./imgs/reggae_songs.png" alt="all songs">
+            </div>
+            <div class="card__2 card">
+                <p>Buscar canciones por id</p>
+                <img src="./imgs/Synthwave.jpg" alt="songs by id">
+            </div>
+            <div class="card__3 card">
+                <p>Buscar canciones por estado de ánimo</p>
+                <img src="./imgs/moody_songs.jpeg" alt="songs based on mood">
+            </div>
+        </div>
+    </main>
 </body>
 </html>
