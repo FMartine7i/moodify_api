@@ -24,7 +24,7 @@
 
 ### Endpoints/ Query params
 ## Álbumes
-# Obtener álbumes de rock recientemente lanzados.
-# Obtener álbumes de bandas sonoras de películas.
-# Obtener álbumes instrumentales. 
-
+# getAlbums: Permite obtener una lista general de álbumes desde Spotify.
+# getAlbumsByYear: Filtra los álbumes lanzados en 2024.
+# getInstrumentalAlbums: Busca álbumes clasificados como instrumentales.
+# getAlbumById: Busca un álbum en la caché mediante un customId generado previamente.
