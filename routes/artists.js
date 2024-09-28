@@ -1,6 +1,6 @@
-const {Router} = require('express');
-const { getArtists, getArtistById, getArtistByGenre } = require('../controllers/artists');
-const router = Router();
+const { Router } = require('express')
+const { getArtists, getArtistById, getArtistByGenre } = require('../controllers/artists')
+const router = Router()
 
 
 router.get('/', (req, res) => {
@@ -12,4 +12,4 @@ router.get('/', (req, res) => {
 router.get('/:id', getArtistById);
 
 
-module.exports = router;
+module.exports = router

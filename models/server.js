@@ -4,6 +4,8 @@ const SpotifyWebApi = require('spotify-web-api-node')
 const cors = require('cors')
 const songsRouter = require('../routes/songs')
 const artistRouter = require('../routes/artists')
+const playlistRouter = require('../routes/playlists')
+const albumsRouter = require('../routes/albums')
 
 class server {
   constructor () {
@@ -23,6 +25,7 @@ class server {
   }
 
   middlewares () {
+    this.app.use(express.static('public'))
     this.app.use(cors())
     this.app.use(express.json())
   }
@@ -43,7 +46,9 @@ class server {
 
   routes () {
     this.app.use('/api/v1/songs', songsRouter)
+    this.app.use('/api/v1/playlists', playlistRouter)
     this.app.use('/api/v1/artists', artistRouter)
+    this.app.use('/api/v1/albums', albumsRouter)
   }
 
   listen () {
