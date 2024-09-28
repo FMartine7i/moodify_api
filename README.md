@@ -61,19 +61,19 @@
     |---|---|---|
     | **GET** | ``api\v1\albums`` | Devuelve 50 álbumes |
     | **GET** | ``api\v1\albums\id\:id`` | Devuelve un álbum por id [1 - 50] |
-    | **GET** | ``api\v1\albums?year=<year>`` | Devuelve álbumes año solicitado |
+    | **GET** | ``api\v1\albums?year=<year>`` | Devuelve álbumes del año solicitado |
 
 ### Paquetes instalados
-    | Paquete | Descripción |
-    |---|---|
-    | ``dotenv`` | Permite cargar variables de entorno desde un archivo ``.env``. |
-    | ``express`` | Un framework minimalista y flexible de **Node.js** que facilita la creación de **APIs**. |
-    | ``nodemon`` | Permite la actualización automática de la **API**. |
-    | ``husky`` | Herramienta para definir hooks de Git que permiten ejecutar scripts como formateo o pruebas antes de hacer commits, mejorando la calidad del código. |
-    | ``standard`` | Un **linter** y formateador que aplica reglas de estilo de código JS sin configuraciones adicionales, asegurando consistencia en el código. |
-    | ``cors`` | Middleware de **Express** que habilita solicitudes HTTP desde orígenes distintos, necesario para comunicar la **API Moodify** con la **API** de **Spotify**. |
-    | ``spotify-api-call`` | Un paquete para hacer **llamadas HTTP** más simples a la **API** de **Spotify**, proporcionando un método estructurado para interactuar con sus **endpoints**. |	
-    | ``spotify-web-api-node`` | Cliente oficial para **Node.js** que simplifica la autenticación y las solicitudes a la **API** de **Spotify**, permitiendo acceso a datos como canciones, artistas y playlists. |
+| Paquete | Descripción |
+|---|---|
+| ``dotenv`` | Permite cargar variables de entorno desde un archivo ``.env``. |
+| ``express`` | Un framework minimalista y flexible de **Node.js** que facilita la creación de **APIs**. |
+| ``nodemon`` | Permite la actualización automática de la **API**. |
+| ``husky`` | Herramienta para definir hooks de Git que permiten ejecutar scripts como formateo o pruebas antes de hacer commits, mejorando la calidad del código. |
+| ``standard`` | Un **linter** y formateador que aplica reglas de estilo de código JS sin configuraciones adicionales, asegurando consistencia en el código. |
+| ``cors`` | Middleware de **Express** que habilita solicitudes HTTP desde orígenes distintos, necesario para comunicar la **API Moodify** con la **API** de **Spotify**. |
+| ``spotify-api-call`` | Un paquete para hacer **llamadas HTTP** más simples a la **API** de **Spotify**, proporcionando un método estructurado para interactuar con sus **endpoints**. |	
+| ``spotify-web-api-node`` | Cliente oficial para **Node.js** que simplifica la autenticación y las solicitudes a la **API** de **Spotify**, permitiendo acceso a datos como canciones, artistas y playlists. |
     
 
 ### Manejo de errores
