@@ -48,7 +48,7 @@ const getArtistById = async (req, res) => {
 
 const getArtistByGenre = async (req, res) =>{
     try{
-        const genre = req.params.genre || 'rock';
+        const genre = req.query.genre || 'rock';
         if(!genre){
             return res.status(400).json({
                 status:'ERROR',
