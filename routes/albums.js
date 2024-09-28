@@ -1,7 +1,17 @@
-const { Router } = require('express');
-const { getAlbums } = require('../controllers/albums');
-const router = Router();
+const { Router } = require('express')
+const { getAlbums, getAlbumById, getAlbumsByYear, getInstrumentalAlbums } = require('../controllers/albums')
+const router = Router()
 
-router.get('/', getAlbums);
+router.get('/', (req, res) => {
+    if (req.query.year) {
+        getAlbumsByYear(req, res)
+    } else if (req.query.instrumental) {
+        getInstrumentalAlbums(req, res)
+    } else {
+        getAlbums(req, res)
+    }
+})
 
-module.exports = router;
+router.get('/:id', getAlbumById)
+
+module.exports = router
