@@ -93,7 +93,7 @@
 * ``/moodify/models`` → esta carpeta guarda el archivo ``server.js`` que permite la conexión entre Moodify API y la API de Spotify.
 * ``/moodify/public/`` → acá se encuentra la página pública que se muestra por defecto
 > [!IMPORTANT]
-> La pagina pública puede realizar algunas funciones, como buscar todas las canciones si se hace ``click`` en la imagen con el texto ""Buscar canciones" y puede buscar por id la canción elegida de la lista desplegada, solo haciendo click en la imagen que acompaña el input de búsqueda.
+> La pagina pública puede realizar algunas funciones, como buscar todas las canciones si se hace ``click`` en la imagen con el texto "Buscar canciones" y puede buscar por ``id`` la canción elegida de la **lista** desplegada, solo haciendo 'click' en la imagen que acompaña el input de búsqueda.
 
 ![Estructura](https://i.imgur.com/Ux8iRaH.png)
 
