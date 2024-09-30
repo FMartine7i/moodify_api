@@ -3,7 +3,7 @@ let cachedSongs = [] // creo carpeta para guardar las canciones con id personali
 const getSongs = async (req, res) => {
   try {
     const spotifyApi = req.app.locals.spotifyApi
-    const data = await spotifyApi.searchTracks(req.query.q || 'default', { limit: 50 })
+    const data = await spotifyApi.searchTracks(req.query.q || 'league', { limit: 50 })
     const songs = data.body.tracks.items.map((song, index) => ({
       customId: index + 1,
       name: song.name,
