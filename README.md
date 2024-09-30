@@ -64,7 +64,7 @@
     | **GET** | ``api\v1\albums?year=<year>`` | Devuelve álbumes del año solicitado |
 
 > [!IMPORTANT]
-> Para el uso de las rutas de búsqueda por id, primero se deben obtener todas las camciones, playlists, artistas y álbumes, de otra forma no podrán cargarse, dado que las canciones cuentan con un id personalizado autoincremental, debido a que las IDs de Spotify no son consecutivas.
+> Para el uso de las rutas de búsqueda por ``id``, primero se deben obtener todas las canciones, playlists, artistas y álbumes, de otra forma no podrán cargarse, dado que las canciones cuentan con un id personalizado autoincremental, debido a que las IDs de **Spotify** no son consecutivas.
 
 ### Paquetes instalados
 | Paquete | Descripción |
