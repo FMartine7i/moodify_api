@@ -1,6 +1,6 @@
-let cachedAlbums = [] 
+let cachedAlbums = []
 
-// get albums 
+// get albums
 const getAlbums = async (req, res) => {
   try {
     const spotifyApi = req.app.locals.spotifyApi
@@ -14,7 +14,7 @@ const getAlbums = async (req, res) => {
       image: album.images[0] && album.images[0].url,
       id: album.id
     }))
-    cachedAlbums = albums 
+    cachedAlbums = albums
     res.status(200).json({
       status: 'OK',
       data: cachedAlbums
@@ -28,7 +28,7 @@ const getAlbums = async (req, res) => {
   }
 }
 
-// get album by id 
+// get album by id
 const getAlbumById = async (req, res) => {
   const albumId = parseInt(req.params.id)
   const album = cachedAlbums.find(a => a.customId === albumId)

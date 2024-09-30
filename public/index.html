@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="imgs/favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="imgs/favicon-16x16.png" sizes="16x16" />
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <title>moodify API</title>
 </head>
 <body>
@@ -17,31 +19,142 @@
         <div class="sidebar__container">
             <h3>moodify</h3>
             <ul>
-                <li>explore</li>
-                <li>songs</li>
-                <li>artists</li>
-                <li>genres</li>
-                <li>playlists</li>
-                <li>history</li>
+                <li id="explore">
+                    <i class='bx bxl-netlify'></i>
+                    <p>explore</p>
+                </li>
+                <li id='songs'>
+                    <i class='bx bx-music'></i>
+                    <p>songs</p>
+                </li>
+                <li id='artists'>
+                    <i class='bx bx-user'></i>
+                    <p>artists</p>
+                </li>
+                <li id='albums'>
+                    <i class='bx bx-album' ></i>
+                    <p>albums</p>
+                </li>
+                <li id='playlists'>
+                    <i class='bx bxs-playlist'></i>
+                    <p>playlists</p>
+                </li>
+                <li id="history">
+                    <i class='bx bx-history'></i>
+                    <p>history</p>
+                </li>
             </ul>
         </div>
     </div>
     <main class="main__container">
-        <h1>Songs</h1>
-        <div class="container">
-            <div class="card__1 card">
-                <p>Buscar todas las canciones</p>
-                <img src="./imgs/reggae_songs.png" alt="all songs">
+        <div class="songs__container">
+            <h1>Songs</h1>
+            <div class="container">
+                <a href="songs.html" class="card__1 card">
+                    <div>
+                        <p>Buscar todas las canciones</p>
+                    </div>
+                    <img src="./imgs/note.png" alt="all songs">
+                </a>
+                <div class="card__2 card">
+                    <div>
+                        <p>Buscar canciones por id</p>
+                        <input type="text" class="id__input" id="idSongInput" placeholder="[1 - 50]">
+                    </div>
+                    <img class="search__card" src="./imgs/Synthwave.jpg" alt="songs by id">
+                </div>
+                <div class="card__3 card">
+                    <p>Buscar canciones por estado de ánimo</p>
+                    <select name="mood" id="selectMood">
+                        <option value="happy">happy</option>
+                        <option value="sad">sad</option>
+                        <option value="relaxed">relaxed</option>
+                        <option value="angry">angry</option>
+                        <option value="dark">dark</option>
+                        <option value="creepy">creepy</option>
+                        <option value="romantic">romantic</option>
+                        <option value="emotional">emotional</option>
+                    </select>
+                    <img src="./imgs/moody_songs.jpeg" alt="songs based on mood">
+                </div>
             </div>
-            <div class="card__2 card">
-                <p>Buscar canciones por id</p>
-                <img src="./imgs/Synthwave.jpg" alt="songs by id">
+        </div>
+        <div class="song-id__container hide">
+            <button class="go-back__btn">
+                <i class='bx bx-left-arrow' ></i>
+                <p>go back</p>
+            </button>
+            <div class="song__details"></div>
+        </div>
+        <div class="artists__container hide">
+            <h1>Artists</h1>
+            <div class="container">
+                <div class="card__1 card">
+                    <div>
+                        <p>Buscar todos los artistas</p>
+                    </div>
+                    <img src="./imgs/artists.png" alt="all songs">
+                </div>
+                <div class="card__2 card">
+                    <div>
+                        <p>Buscar artistas por id</p>
+                        <input type="text" class="id__input" placeholder="[1 - 50]">
+                    </div>
+                    <img src="./imgs/artist_id.png" alt="songs by id">
+                </div>
+                <div class="card__3 card">
+                    <p>Buscar artistas por género</p>
+                    <img src="./imgs/reggae_songs.png" alt="songs based on mood">
+                </div>
             </div>
-            <div class="card__3 card">
-                <p>Buscar canciones por estado de ánimo</p>
-                <img src="./imgs/moody_songs.jpeg" alt="songs based on mood">
+        </div>
+        <div class="playlists__container hide">
+                <h1>Playlists</h1>
+                <div class="container">
+                    <div class="card__1 card">
+                        <div>
+                            <p>Buscar todas las playlists</p>
+                        </div>
+                        <img src="./imgs/allplaylists.png" alt="all songs">
+                    </div>
+                    <div class="card__2 card">
+                        <div>
+                            <p>Buscar playlists por id</p>
+                            <input type="text" class="id__input" placeholder="[1 - 50]">
+                        </div>
+                        <img src="./imgs/playlists.png" alt="songs by id">
+                    </div>
+                    <div class="card__3 card">
+                        <p>Buscar playlists para un momento del día</p>
+                        <img src="./imgs/latenight.jpg" alt="songs based on mood">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="albums__container hide">
+            <h1>Albums</h1>
+            <div class="container">
+                <div class="card__1 card">
+                    <div>
+                        <p>Buscar todos los albums</p>
+                    </div>
+                    <img src="./imgs/albums.png" alt="all songs">
+                </div>
+                <div class="card__2 card">
+                    <div>
+                        <p>Buscar albums por id</p>
+                        <input type="text" class="id__input" placeholder="[1 - 50]">
+                    </div>
+                    <img src="./imgs/arctic.jpg" alt="songs by id">
+                </div>
+                <div class="card__3 card">
+                    <p>Buscar albums por año</p>
+                    <img src="./imgs/albums_year.png" alt="songs based on mood">
+                </div>
             </div>
         </div>
     </main>
+    <script src="main.js"></script>
+    <script src="songs.js"></script>
 </body>
 </html>
