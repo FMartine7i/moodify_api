@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="imgs/favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="imgs/favicon-16x16.png" sizes="16x16" />
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <title>moodify API</title>
 </head>
@@ -58,15 +60,31 @@
                     <div>
                         <p>Buscar canciones por id</p>
                         <input type="text" class="id__input" id="idSongInput" placeholder="[1 - 50]">
-                        <button class="song__btn"><i class='bx bx-check-circle' ></i></button>
                     </div>
-                    <img src="./imgs/Synthwave.jpg" alt="songs by id">
+                    <img class="search__card" src="./imgs/Synthwave.jpg" alt="songs by id">
                 </div>
                 <div class="card__3 card">
                     <p>Buscar canciones por estado de ánimo</p>
+                    <select name="mood" id="selectMood">
+                        <option value="happy">happy</option>
+                        <option value="sad">sad</option>
+                        <option value="relaxed">relaxed</option>
+                        <option value="angry">angry</option>
+                        <option value="dark">dark</option>
+                        <option value="creepy">creepy</option>
+                        <option value="romantic">romantic</option>
+                        <option value="emotional">emotional</option>
+                    </select>
                     <img src="./imgs/moody_songs.jpeg" alt="songs based on mood">
                 </div>
             </div>
+        </div>
+        <div class="song-id__container hide">
+            <button class="go-back__btn">
+                <i class='bx bx-left-arrow' ></i>
+                <p>go back</p>
+            </button>
+            <div class="song__details"></div>
         </div>
         <div class="artists__container hide">
             <h1>Artists</h1>
@@ -75,14 +93,14 @@
                     <div>
                         <p>Buscar todos los artistas</p>
                     </div>
-                    <img src="./imgs/reggae_songs.png" alt="all songs">
+                    <img src="./imgs/artists.png" alt="all songs">
                 </div>
                 <div class="card__2 card">
                     <div>
                         <p>Buscar artistas por id</p>
                         <input type="text" class="id__input" placeholder="[1 - 50]">
                     </div>
-                    <img src="./imgs/Synthwave.jpg" alt="songs by id">
+                    <img src="./imgs/artist_id.png" alt="songs by id">
                 </div>
                 <div class="card__3 card">
                     <p>Buscar artistas por género</p>
