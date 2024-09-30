@@ -63,6 +63,9 @@
     | **GET** | ``api\v1\albums\id\:id`` | Devuelve un álbum por id [1 - 50] |
     | **GET** | ``api\v1\albums?year=<year>`` | Devuelve álbumes del año solicitado |
 
+> [!IMPORTANT]
+> Para el uso de las rutas de búsqueda por id, primero se deben obtener todas las camciones, playlists, artistas y álbumes, de otra forma no podrán cargarse, dado que las canciones cuentan con un id personalizado autoincremental, debido a que las IDs de Spotify no son consecutivas.
+
 ### Paquetes instalados
 | Paquete | Descripción |
 |---|---|
@@ -90,7 +93,7 @@
 * ``/moodify/models`` → esta carpeta guarda el archivo ``server.js`` que permite la conexión entre Moodify API y la API de Spotify.
 * ``/moodify/public/`` → acá se encuentra la página pública que se muestra por defecto
 > [!IMPORTANT]
-> La pagina pública mostrada no es funcional
+> La pagina pública puede realizar algunas funciones, como buscar todas las canciones si se hace ``click`` en la imagen con el texto ""Buscar canciones" y puede buscar por id la canción elegida de la lista desplegada, solo haciendo click en la imagen que acompaña el input de búsqueda.
 
 ![Estructura](https://i.imgur.com/Ux8iRaH.png)
 
