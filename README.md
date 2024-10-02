@@ -40,7 +40,7 @@
     |---|---|---|
     | **GET** | ``api\v1\songs`` | Busca todas las canciones
     | **GET** | ``api\v1\songs\id\:id`` | Busca una canción por su ID (numeros del 1 al 50)
-    | **GET** | ``api\v1\songs?mood=<mood>`` | Busca canciones por estado de ánimo. Se puede elegir: [dark, sad, happy, angry, crepy,romantic, emotional, relaxed]
+    | **GET** | ``api\v1\songs?mood=<mood>`` | Busca canciones por estado de ánimo. Se puede elegir: [dark, sad, happy, angry, romantic, emotional, relaxed]
 
 * Artistas
     | Método | Endpoint | Descripción |
@@ -93,7 +93,7 @@
 * ``/moodify/models`` → esta carpeta guarda el archivo ``server.js`` que permite la conexión entre Moodify API y la API de Spotify.
 * ``/moodify/public/`` → acá se encuentra la página pública que se muestra por defecto
 > [!IMPORTANT]
-> La pagina pública puede realizar algunas funciones, como buscar todas las canciones si se hace ``click`` en la imagen con el texto "Buscar canciones" y puede buscar por ``id`` la canción elegida de la **lista** desplegada, solo haciendo 'click' en la imagen que acompaña el input de búsqueda.
+> La pagina pública puede realizar algunas funciones, como buscar todas las canciones, puede buscar por ``id`` la canción elegida de la **lista** desplegada y puede buscar por ``mood`` eligiendo el estado de ánimo en el ``<select>`` desplegable. Todas estas búsquedas se mostrarán de forma gráfica en la página.
 
 ![Estructura](https://i.imgur.com/Ux8iRaH.png)
 

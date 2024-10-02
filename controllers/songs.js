@@ -46,13 +46,12 @@ const getSongsById = async (req, res) => {
 // ------------------------------------------ get songs by mood ------------------------------------------
 // mapear los nombres de los estados de ánimo a palabras clave de búsqueda
 const moodToKeywords = {
-  relaxed: ['chill', 'acoustic', 'relax', 'ambient'],
-  happy: ['happy', 'upbeat', 'joyful', 'energetic'],
+  relaxed: ['chill', 'acoustic', 'relax', 'lofi', 'reggae', 'chillhop'],
+  happy: ['happy', 'uplifting', 'coldplay', 'energetic', 'abba', 'pop', 'summer'],
   sad: ['melancholy', 'sad', 'emotional', 'slow'],
-  angry: ['angry', 'aggressive', 'intense', 'intense'],
+  angry: ['metal', 'hard rock', 'judas priest', 'metallica', 'iron maiden', 'pantera'],
   dark: ['dark', 'gloomy', 'somber', 'depressing'],
-  romantic: ['romantic', 'love', 'sweet', 'passionate'],
-  creepy: ['creepy', 'spooky', 'weird', 'unsettling', 'eerie', 'mysterious'],
+  romantic: ['romantic', 'love', 'sweet'],
   emotional: ['emotional', 'heartfelt', 'expressive', 'soulful']
 }
 

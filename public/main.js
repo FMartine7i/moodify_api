@@ -4,8 +4,12 @@ const playlistsContainer = document.querySelector('.playlists__container')
 const albumsContainer = document.querySelector('.albums__container')
 const containers = [songsContainer, artistsContainer, playlistsContainer, albumsContainer]
 const songView = document.querySelector('.song-id__container')
-const goBackBtn = document.querySelector('.go-back__btn')
-const songIdCard = document.querySelector('.search__card')
+const goBackBtn = document.querySelectorAll('.go-back__btn')
+const songIdCard = document.querySelector('.id-song__btn')
+const allSearchBtns = document.querySelectorAll('.search__btn')
+const sideBar = document.querySelector('.side__bar')
+const songContainer = document.querySelector('.song__details')
+const songsListContainer = document.querySelector('.songs-list')
 
 document.getElementById('songs').addEventListener('click', () => {
   showContainer(songsContainer)
@@ -38,6 +42,20 @@ function showContainer (activeContainer) {
   })
 }
 
+allSearchBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    // const searchInput = document.getElementById('searchInput')
+    // const searchValue = searchInput.value
+    // if (searchValue.trim() === '') {
+    //   alert('Por favor, ingresa un valor de búsqueda.')
+    // } else {
+    //   const searchType = btn.getAttribute('data-search-type')
+    //   search(searchValue, searchType)
+    // }
+    sideBar.classList.add('hide')
+  })
+})
+
 songIdCard.addEventListener('click', () => {
   songsContainer.classList.add('hide')
   songsContainer.classList.remove('show')
@@ -51,13 +69,6 @@ songIdCard.addEventListener('click', () => {
     alert('No se encontró ninguna canción con ese ID.')
     console.error(err)
   }
-})
-
-goBackBtn.addEventListener('click', () => {
-  songView.classList.add('hide')
-  songView.classList.remove('show')
-  songsContainer.classList.remove('hide')
-  songsContainer.classList.add('show')
 })
 
 async function fetchSongById (songId) {
@@ -75,7 +86,6 @@ async function fetchSongById (songId) {
 }
 
 function displaySong (song) {
-  const songContainer = document.querySelector('.song__details')
   songContainer.innerHTML = `
     <h1>${song.name}</h1>
     <p>Artista(s): ${song.artists.join(', ')}</p>
@@ -135,3 +145,68 @@ function displaySong (song) {
     audio.currentTime = progressBar.value
   })
 }
+
+document.querySelector('.display_all').addEventListener('click', async () => {
+  songsContainer.classList.add('hide')
+  songsListContainer.classList.remove('hide')
+  songsListContainer.classList.add('show')
+  const response = await fetch('/api/v1/songs')
+  const data = await response.json()
+  const songs = data.data
+  if (data.status === 'OK') {
+    displaySongs(songs)
+  } else {
+    console.error('Error al buscar todas las canciones')
+  }
+})
+
+document.querySelector('.search_by_mood').addEventListener('click', async () => {
+  songsContainer.classList.add('hide')
+  songsListContainer.classList.remove('hide')
+  songsListContainer.classList.add('show')
+  const moodSelected = document.getElementById('selectMood').value
+  try {
+    const response = await fetch(`/api/v1/songs?mood=${moodSelected}`)
+    const data = await response.json()
+    if (data.status === 'OK') {
+      displaySongs(data.data)
+    } else {
+      console.error('Error al buscar canciones por estado de ánimo')
+    }
+  } catch (err) {
+    console.error('Error al buscar canciones por estado de ánimo', err)
+  }
+})
+
+function displaySongs (songs) {
+  const songsListDetails = document.querySelector('.songs__list')
+  songsListDetails.innerHTML = ''
+  songs.forEach(song => {
+    songsListDetails.innerHTML += `
+      <div class="song__container">
+        <img width="150px" src="${song.image || './imgs/default_image.jpg'}" alt="Album Image">
+        <div class="song__info">
+          <div class="song-info-container">
+            <h2>${song.name}</h2>
+            <p>Artist: ${song.artists.join(', ')}</p>
+            <p>Album: ${song.album}</p>
+            <p>ID: ${song.customId}</p>
+          </div>
+          ${song.preview_url ? `<a href="${song.preview_url}" class="preview__btn" target="_blank">Preview</a>` : '<p>No preview available</p>'}
+        </div>
+      </div>
+    `
+  })
+}
+
+goBackBtn.forEach(btn => {
+  btn.addEventListener('click', () => {
+    songView.classList.add('hide')
+    songView.classList.remove('show')
+    songsListContainer.classList.add('hide')
+    songsListContainer.classList.remove('show')
+    sideBar.classList.remove('hide')
+    songsContainer.classList.add('show')
+    songsContainer.classList.remove('hide')
+  })
+})

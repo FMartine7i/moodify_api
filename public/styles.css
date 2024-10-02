@@ -15,11 +15,6 @@ body {
     height: 100%;
 }
 
-a {
-    text-decoration: none;
-    color: #baa9c3;
-}
-
 .void__container {
     width: 200px;
     height: 50px;
@@ -62,6 +57,8 @@ a {
     font-weight: 200;
     font-size: 1.5rem;
     color:rgb(178, 159, 192);
+    transition: 0.25s ease-in-out;
+    left: 0;
 }
 
 .sidebar__container {
@@ -102,25 +99,24 @@ a {
 }
 
 main{
-    margin: 20px 5% 5% 20%;
+    display: flex;
+    justify-content: center;
 }
 
 .container {
     margin-top: 30px;
-    display: flex;
-    flex-wrap: wrap;
 }
 
 .card {
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     background: #201c25;
     border-radius: 10px;
     box-shadow: 2px 2px 5px rgba(4, 4, 4, 0.829);
     transition: transform 0.25s ease-in-out;
-    margin: 20px;
+    margin: 0 20px 20px 0;
+    width: 580px;
 }
 
 .card div {
@@ -139,6 +135,7 @@ main{
     outline: none;
     border: none;
     padding: 5px;
+    text-align: center;
 }
 
 .song__btn {
@@ -159,12 +156,18 @@ main{
     font-size: 1.5rem;
 }
 
-#selectMood {
+#selectMood, #selectGenre, #year, #selectTime {
     background: #110f14;
     color: #a891bb;
     border: none;
     border-radius: 5px;
     padding: 5px;
+    outline: none;
+    text-align: center;
+}
+
+#year {
+    max-width: 60px;
 }
 
 .card p {
@@ -174,20 +177,59 @@ main{
 
 .card img {
     display: block;
-    height: 350px;
-    width: 350px;
-    border-radius: 10px;
-    margin: 5px;
+    height: 120px;
+    width: 120px;
+    border-radius: 20px;
+    margin: 20px;
 }
 
-.card:hover {
-    transform: scale(1.05);
-    box-shadow: #ad12f5 1px 1px 5px 2px;
+.card__1:hover {
+    background: linear-gradient(to top,  #0ebc99, #39f584);
+    color: #712ce0;
+}
+
+.card__2:hover {
+    background: linear-gradient(to top,  #2478d9, #0ebc99);
+    color: #ffffff;
+}
+
+.card__3:hover {
+    background: linear-gradient(to top,  #9033db, #2478d9);
+    color: #ffffff;
+}
+
+.card:hover input, .card:hover #selectTime, .card:hover #selectMood, .card:hover #selectGenre, .card:hover #year {
+    background: #201c24;
+    color: #d7c8e4;
+}
+
+.search__btn {
+    position: absolute;
+    padding: 10px;
+    right: 0;
+    margin-right: 40px;
+    border: none;
+    border-radius: 5px;
+    background: #7a1cd9;
+    box-shadow: 2px 2px 5px rgba(4, 4, 4, 0.829);
+    color: #fff;
+    transition: transform 0.05s ease-in;
+}
+
+.search__btn:active {
+    transform: scale(0.95);
 }
 
 .main__container > div {
     position: absolute;
     transition: all 0.3s ease-in-out;
+}
+
+.card__container {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 70%;
+    margin-top: 5vh;
 }
 
 .show {
@@ -200,12 +242,13 @@ main{
     z-index: 0;
     opacity: 0;
     pointer-events: none;
+    width: 0;
 }
 
 @media screen and (max-width: 1380px) {
     .card img {
-        height: 250px;
-        width: 250px;
+        height: 80px;
+        width: 80px;
     }
 
     .card p {
@@ -225,8 +268,12 @@ main{
 
 .songs__list {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(5, minmax(180px, 1fr));
     gap: 20px;
+}
+
+.list {
+    padding: 20px;
 }
 
 .song__container {
@@ -334,6 +381,7 @@ main{
     gap: 10px;
     padding: 20px;
     box-shadow: 2px 2px 5px rgba(4, 4, 4, 0.829);
+    width: 350px;
 }
 
 #play-pause {
