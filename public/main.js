@@ -52,7 +52,7 @@ allSearchBtns.forEach(btn => {
     //   const searchType = btn.getAttribute('data-search-type')
     //   search(searchValue, searchType)
     // }
-    sideBar.classList.add('hide')
+    sideBar.classList.add('hide__bar')
   })
 })
 
@@ -205,7 +205,7 @@ goBackBtn.forEach(btn => {
     songView.classList.remove('show')
     songsListContainer.classList.add('hide')
     songsListContainer.classList.remove('show')
-    sideBar.classList.remove('hide')
+    sideBar.classList.remove('hide__bar')
     songsContainer.classList.add('show')
     songsContainer.classList.remove('hide')
   })
