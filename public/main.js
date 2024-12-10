@@ -24,10 +24,10 @@ document.getElementById('albums').addEventListener('click', () => {
   showContainer(albumsContainer)
 })
 document.getElementById('explore').addEventListener('click', () => {
-  alert('Explore no tiene una función especificada.')
+  window.alert('Explore no tiene una función especificada.')
 })
 document.getElementById('history').addEventListener('click', () => {
-  alert('History no tiene una función especificada.')
+  window.alert('History no tiene una función especificada.')
 })
 
 function showContainer (activeContainer) {
@@ -66,7 +66,7 @@ songIdCard.addEventListener('click', () => {
     const songId = document.getElementById('idSongInput').value
     fetchSongById(songId)
   } catch (err) {
-    alert('No se encontró ninguna canción con ese ID.')
+    window.alert('No se encontró ninguna canción con ese ID.')
     console.error(err)
   }
 })
@@ -78,7 +78,7 @@ async function fetchSongById (songId) {
       const result = await response.json()
       displaySong(result.data)
     } else {
-      alert('No se encontró ninguna canción con ese ID.')
+      window.alert('No se encontró ninguna canción con ese ID.')
     }
   } catch (err) {
     console.error('Error fetching song by ID:', err)

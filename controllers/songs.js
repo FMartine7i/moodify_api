@@ -48,10 +48,10 @@ const getSongsById = async (req, res) => {
 const moodToKeywords = {
   relaxed: ['chill', 'acoustic', 'relax', 'lofi', 'reggae', 'chillhop'],
   happy: ['happy', 'uplifting', 'coldplay', 'energetic', 'abba', 'pop', 'summer'],
-  sad: ['melancholy', 'sad', 'emotional', 'slow'],
+  sad: ['melancholy', 'sad songs', 'emotional', 'slow', 'Damien Rice', 'lofi'],
   angry: ['metal', 'hard rock', 'judas priest', 'metallica', 'iron maiden', 'pantera'],
   dark: ['dark', 'gloomy', 'somber', 'depressing'],
-  romantic: ['romantic', 'love', 'sweet'],
+  romantic: ['love', 'coldplay', 'ed sheeran', 'adele', 'the kid laroi'],
   emotional: ['emotional', 'heartfelt', 'expressive', 'soulful']
 }
 
